@@ -1,0 +1,19 @@
+def binary_search(arr,low ,high,k):
+    mid=(low+high)//2
+    if low>high:
+        return -1
+    if arr[mid]<k:
+        return binary_search(arr,mid+1,high,k)
+    elif arr[mid]>k:
+        return binary_search(arr,low,mid-1,k)
+    elif arr[mid]==k:
+     return mid
+arr=[20,30,40,60,80,90]
+k=60
+print("the given array is",arr)
+print("element to be found is",k)
+ans=binary_search(arr,0,len(arr)-1,k)
+if ans==-1:
+    print("element not found")
+else:
+    print("the index of the element is ",ans)
