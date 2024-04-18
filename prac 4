@@ -1,0 +1,35 @@
+#program to perform ls & bs on list of elements
+import time
+def linear_search(arr,k):
+    for i in range(len(arr)):
+        if (arr[i]==k):
+            return i
+        return -1
+def binary_search(arr,low,high,k):
+    mid=(low+high)//2
+    if low>high:
+        return -1
+    if arr[mid]<k:
+        return binary_search(arr,mid+1,high,k)
+    elif arr[mid]>k:
+        return binary_search(arr,low,mid-1,k)
+    elif arr[mid]==k:
+        return mid
+if __name__=="__main__":
+    arr=[1,2,3,4,5,6,7,8,9,10]
+    key_element=9
+
+start_time=time.time()
+linear_search_result=linear_search(arr,key_element)
+
+end_time=time.time()
+linear_search_time=(end_time-start_time)*1000
+
+start_time=time.time()
+binary_search_result=binary_search(arr,0,len(arr)-1,key_element)
+
+end_time=time.time()
+binary_search_time=(end_time-start_time)*1000
+
+print(f"linear search result:{linear_search_result},time:{linear_search_time:.6f}milliseconds")
+print(f"binary search result:{binary_search_result},time:{binary_search_time:.6f}milliseconds")
