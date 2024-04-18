@@ -1,0 +1,48 @@
+#program to create a list based stack and perform various stack operations
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return not bool(self.items)
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+
+    def size(self):
+        return len(self.items)
+
+    def top(self):
+        if not self.is_empty():
+            return self.items[-1]
+
+    def display(self):
+        print(self.items)
+
+# Example usage:
+stack = Stack()
+while True:
+    print("1. Push data in stack")
+    print("2. Pop data from stack")
+    print("3. Display stack")
+    print("4. Quit")
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        data = int(input("Enter data: "))
+        stack.push(data)
+    elif choice == 2:
+        stack.pop()
+    elif choice == 3:
+        stack.display()
+    elif choice == 4:
+        break
+    else:
+        print("Invalid choice")
+
+print("Exiting...")
+
