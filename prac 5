@@ -1,0 +1,52 @@
+#programs on recursion like factorial,fibonacci,tower of hanoi,compare algorithms to find factorial/fibonacci using iterative and recursive approches
+
+
+#TOH    
+def move_tower(height, from_pole, to_pole, spare_pole):
+    if height >= 1:
+        move_tower(height - 1, from_pole, spare_pole, to_pole)
+        print(f"Move disk {height} from {from_pole} to {to_pole}")
+        move_tower(height - 1, spare_pole, to_pole, from_pole)
+
+move_tower(3, 'A', 'C', 'B')
+
+#calculating factorial using iteration
+def get_factorial_while_loop(n):
+    result=1
+    while n>1:
+        result=result * n
+        n=1
+    return result
+def get_factorial_recursively(n):
+    if n<=1:
+        return 1
+    else:
+        return n * get_factorial_recursively(n-1)
+
+inp=input("enter a number")
+inp=int(inp)
+
+print(f"factorial using iteration:{get_factorial_while_loop(inp)}")
+print(f"factorial using recursion:{get_factorial_recursively(inp)}")
+
+
+
+#fibonacci
+def fibonacci_iteration(n):
+    if n<=1:
+        return n
+    fib_sequence=[0,1]
+    for i in range(2,n+1):
+        fib_sequence.append(fib_sequence[i-1]+fib_sequence[i-2])
+    return fib_sequence
+def fibonacci_recursive(n):
+    if n<=1:
+        return n
+    else:
+        return fibonacci_recursive(n-1)+fibonacci_recursive(n-2)
+
+n=5
+print("\nfibonacci series(iteration)for n=",n,":",fibonacci_iteration(n))
+print("fibonacci series (recursive) for n=",n,":",end=" ")
+for i in range(n+1):
+    print(fibonacci_recursive(i),end=" ")
