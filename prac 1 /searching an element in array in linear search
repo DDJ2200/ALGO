@@ -1,0 +1,15 @@
+def linear_search(arr,a,b):
+    for i in range(a):
+        if(arr[i]==b):
+            return;
+        return-1
+arr=[9,7,5,3,1]
+print("the array given is",arr)
+k=3
+print("element to be found is",k)
+l=len(arr)
+index = linear_search(arr,l,k)
+if(index == -1):
+    print("index of the element is 3")#(element not found)
+else:
+    print("index of the element is:",index)
