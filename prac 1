@@ -1,0 +1,103 @@
+#program for 1-d array sum ,searching an element ,finding minimum & maximum ,count of even & odd in array
+
+
+#iterating through the array and adding each element to the sum variable & printing it
+
+array = [1, 2, 3, 4, 5]
+sum = 0
+for element in array:
+    sum += element
+print("Sum of the array is", sum)
+
+#sum fo the array using sum() built in function
+arr=[10,20,30,40,50]
+ans=sum(arr)
+print("sum of the array is:",ans)
+
+#searching an element in array in linear search
+def linear_search(arr,a,b):
+    for i in range(a):
+        if(arr[i]==b):
+            return;
+        return-1
+arr=[9,7,5,3,1]
+print("the array given is",arr)
+k=3
+print("element to be found is",k)
+l=len(arr)
+index = linear_search(arr,l,k)
+if(index == -1):
+    print("index of the element is 3")#(element not found)
+else:
+    print("index of the element is:",index)
+
+#searching an element in array in  binary search
+def binary_search(arr,low ,high,k):
+    mid=(low+high)//2
+    if low>high:
+        return -1
+    if arr[mid]<k:
+        return binary_search(arr,mid+1,high,k)
+    elif arr[mid]>k:
+        return binary_search(arr,low,mid-1,k)
+    elif arr[mid]==k:
+     return mid
+arr=[20,30,40,60,80,90]
+k=60
+print("the given array is",arr)
+print("element to be found is",k)
+ans=binary_search(arr,0,len(arr)-1,k)
+if ans==-1:
+    print("element not found")
+else:
+    print("the index of the element is ",ans)
+
+#finding minimum & maximum element in arr using iteration
+arr=[10,89,9,56,4,80,8]
+min  = arr[0]
+max = arr[0]
+for i in range(len(arr)):
+    if arr[i]<min :
+        min =arr[i]
+    if arr[i]>max :
+        max = arr[i]
+    print(min )
+    print(max )
+
+
+#finding minimum & maximum element in arr using built in sort() funcn
+arr=[10,89,9,56,4,80,8]
+arr.sort()
+print(arr[0])
+print(arr[-1])
+
+#count the number of even & odd nums in arr using module operator 
+arr=[1,7,8,4,5,16,8]
+n=len(arr)
+even_count = 0
+odd_count = 0
+for i in range(0,n):
+    if arr[i]%2==0:
+        even_count+=1
+    else:
+        odd_count+=1
+    print("even elements count:")
+    print(even_count)
+    print("odd elements count:")
+    print(odd_count)
+
+
+#count the number of even & odd nums in arr using bit wise AND operator,by doing AND of 1 with array element,if the result comes out to be 0 then the number is even otherwise odd
+arr=[1,7,8,4,5,16,8]
+n=len(arr)
+even_count = 0
+odd_count = 0
+for i in range (0,n):
+    if arr[i]& 1==0:
+        even_count+=1
+    else:
+        odd_count +=1
+    print("even elements count:")
+    print(even_count)
+    print("odd elements count:")
+    print(odd_count)
