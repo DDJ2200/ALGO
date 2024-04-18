@@ -1,0 +1,3 @@
+arr=[10,20,30,40,50]
+ans=sum(arr)
+print("sum of the array is:",ans)
